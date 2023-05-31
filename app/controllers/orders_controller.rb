@@ -9,7 +9,6 @@ class OrdersController < ApplicationController
         category: line_item.product.category
       }
     end
-    # raise @product_line_items.inspect
   end
 
   def create
