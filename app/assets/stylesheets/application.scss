@@ -108,6 +108,15 @@ form.button_to {
 .page-header {
   margin: 3em 0;
 }
+.cards {
+  display: flex;
+  .card {
+    margin: 1em;
+  }
+}
+.card-button {
+  margin: 1em;
+}
 .text-danger {
   color: #f38792 !important;
 }
