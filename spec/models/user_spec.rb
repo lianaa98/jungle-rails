@@ -99,5 +99,49 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '.authenticate_with_credentials' do
+
+    before do
+      @user = User.create(
+        first_name: 'test',
+        last_name: 'test',
+        email: 'example@example.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+    end
+  
+    it 'should authenticate the user with the correct email and password' do
+      authenticated_user = User.authenticate_with_credentials(@user.email, @user.password)
+      expect(authenticated_user).to eq(@user)
+    end
+  
+    it 'should not authenticate the user with the incorrect email or password' do
+      authenticated_user = User.authenticate_with_credentials(@user.email, 'wrong_password')
+      expect(authenticated_user).to be_nil
+    end
+  end
+
+  describe 'edge cases' do
+    before do
+      @user = User.create(
+        first_name: 'test',
+        last_name: 'test',
+        email: 'example@example.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+    end
+
+    it 'should authenticate the user with the correct email and password with spaces' do
+      authenticated_user = User.authenticate_with_credentials('   example@example.com', @user.password)
+      expect(authenticated_user).to eq(@user)
+    end
+
+    it 'should authenticate the user with the correct email with uppercases' do
+      authenticated_user = User.authenticate_with_credentials('ExAmPle@EXAMPLE.com', @user.password)
+      expect(authenticated_user).to eq(@user)
+    end
+  end
 
 end
