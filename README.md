@@ -1,6 +1,42 @@
 # Jungle
 
-A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 6.1 for purposes of learning Rails by example.
+Students are required to create and modify routes on top of existed codebase.
+
+## Features
+
+### Landing page shows all items
+
+![](/docs/landing.gif)
+
+### User can register, login / logout
+
+![](/docs/login.png)
+![](/docs/register.png)
+
+### User can navigate to different categories
+
+![](/docs/show-by-categories.gif)
+
+### User can add items to cart, then pays for the selected items by Stripe
+
+![](/docs/payment.gif)
+
+### User can review order details
+
+![](/docs/order.gif)
+
+### Sold out items are indicated by a tag, and cannot be added to cart
+
+![](/docs/sold-out-tag.png)
+
+### To access admin pages, http-auth is required
+
+![](/docs/http-auth.png)
+
+### Admin pages allow editing categories and products
+
+![](/docs/admin.gif)
 
 ## Setup
 
